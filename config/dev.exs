@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :blokos_dev, BlokosDev.Repo,
   username: "postgres",
-  password: "postgres",
+  password: System.get_env("POSTGRES_DEV_PASS"),
   hostname: "localhost",
   database: "blokos_dev_dev",
   stacktrace: true,

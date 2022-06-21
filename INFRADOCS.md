@@ -1,13 +1,15 @@
 # Development and Production Setup
 
-## Local dev with WSL2
+## Development setup
+
+### Local dev with WSL2
 
 Using Vscode for projects running inside WSL2:
 
 [Vscode Remote Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
 
 
-## ASDF to manage multiple package versions
+### ASDF to manage multiple package versions
 
 Add packages versions to manage
 ```sh
@@ -47,13 +49,56 @@ mix local.hex
 mix archive.install hex phx_new
 ```
 
+### Local database server
+
+Local Postgresql
+```sh
+# check service status
+pg_lsclusters
+
+# start postgresql service
+sudo service postgresql start
+```
+
+Useful commands
+```sh
+# change to postgres user & psql cli
+sudo -u postgres psql
+```
+### Local Phoenix setup
+
+
+```sh
+mix phx.new blokos_dev
+cd blokos_dev
+
+# after dependencies change
+mix deps.get
+
+# save postgres local pass to env
+export POSTGRES_DEV_PASS=<password>
+
+# create dev database
+mix ecto.create
+
+# can run app inside IEx
+iex -S mix phx.server
+```
+
+Useful commands
+```sh
+# change to postgres user & psql cli
+sudo -u postgres psql
+```
+
+## Production setup
+
+### Fly.io app setup and deployment
+
 Login to Fly.io, setup project skeleton and launch
 ```sh
 # Login from console instead of browser with -i
 flyctl auth login -i
-
-mix phx.new blokos_dev
-cd blokos_dev
 
 # One command to launch app and provision DB
 fly launch

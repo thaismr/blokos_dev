@@ -7,7 +7,7 @@ import Config
 # Run `mix help test` for more information.
 config :blokos_dev, BlokosDev.Repo,
   username: "postgres",
-  password: "postgres",
+  password: System.get_env("POSTGRES_DEV_PASS"),
   hostname: "localhost",
   database: "blokos_dev_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
