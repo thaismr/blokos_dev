@@ -64,3 +64,9 @@ Deploy again after changes, and open URL
 fly deploy
 fly open
 ```
+
+Fix git commit email privacy issues
+```sh
+git config --global user.email {username}@users.noreply.github.com
+git commit --amend --reset-author
+```
