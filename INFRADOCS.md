@@ -75,6 +75,8 @@ cd blokos_dev
 # after dependencies change
 mix deps.get
 
+mix credo gen.config
+
 # save postgres local pass to env
 export POSTGRES_DEV_PASS=<password>
 
