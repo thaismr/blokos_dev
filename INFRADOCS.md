@@ -78,6 +78,10 @@ mix deps.get
 # save postgres local pass to env
 export POSTGRES_DEV_PASS=<password>
 
+# secret salt
+mix phx.gen.secret
+export SECRET_SALT=<secret>
+
 # create dev database
 mix ecto.create
 

@@ -15,7 +15,7 @@ config :blokos_dev, BlokosDevWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: BlokosDevWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: BlokosDev.PubSub,
-  live_view: [signing_salt: "1bjr8Scl"]
+  live_view: [signing_salt: System.get_env("SECRET_SALT")]
 
 # Configures the mailer
 #

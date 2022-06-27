@@ -99,6 +99,11 @@ header nav a {
   }
 }
 
+nav ul li {
+  font-size: small;
+  display: inline-block;
+}
+
 a {
   color: var(--green);
 }
@@ -113,4 +118,9 @@ a:hover {
 }
 .main a:hover {
   color: var(--green);
+}
+
+.button, button, input[type=button], input[type=reset], input[type=submit] {
+    background-color: var(--greenblue);
+    border: 0.1rem solid var(--green);
 }
