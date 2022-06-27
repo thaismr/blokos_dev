@@ -21,6 +21,20 @@ defmodule BlokosDevWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    live "/topics", TopicLive.Index, :index
+    live "/topics/new", TopicLive.Index, :new
+    live "/topics/:id/edit", TopicLive.Index, :edit
+
+    live "/topics/:id", TopicLive.Show, :show
+    live "/topics/:id/show/edit", TopicLive.Show, :edit
+
+    live "/posts", PostLive.Index, :index
+    live "/posts/new", PostLive.Index, :new
+    live "/posts/:id/edit", PostLive.Index, :edit
+
+    live "/posts/:id", PostLive.Show, :show
+    live "/posts/:id/show/edit", PostLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
