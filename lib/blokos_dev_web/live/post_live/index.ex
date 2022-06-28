@@ -4,6 +4,8 @@ defmodule BlokosDevWeb.PostLive.Index do
   alias BlokosDev.Content
   alias BlokosDev.Content.Post
 
+  on_mount BlokosDevWeb.UserLiveAuth
+
   @impl true
   def mount(_params, _session, socket) do
     {:ok, assign(socket, :posts, list_posts())}

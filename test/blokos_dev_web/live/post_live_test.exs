@@ -4,8 +4,18 @@ defmodule BlokosDevWeb.PostLiveTest do
   import Phoenix.LiveViewTest
   import BlokosDev.ContentFixtures
 
-  @create_attrs %{body_html: "some body_html", body_md: "some body_md", is_published: true, title: "some title"}
-  @update_attrs %{body_html: "some updated body_html", body_md: "some updated body_md", is_published: false, title: "some updated title"}
+  @create_attrs %{
+    body_html: "some much much much much much much longer body_html",
+    body_md: "some much much much much much much much longer body_md",
+    is_published: true,
+    title: "some title"
+  }
+  @update_attrs %{
+    body_html: "some much much much much much much longer updated body_html",
+    body_md: "some much much much much much much much longer updated body_md",
+    is_published: false,
+    title: "some updated title"
+  }
   @invalid_attrs %{body_html: nil, body_md: nil, is_published: false, title: nil}
 
   defp create_post(_) do
@@ -42,7 +52,7 @@ defmodule BlokosDevWeb.PostLiveTest do
         |> follow_redirect(conn, Routes.post_index_path(conn, :index))
 
       assert html =~ "Post created successfully"
-      assert html =~ "some body_html"
+      assert html =~ "some much much much much much much longer body_html"
     end
 
     test "updates post in listing", %{conn: conn, post: post} do
@@ -64,7 +74,7 @@ defmodule BlokosDevWeb.PostLiveTest do
         |> follow_redirect(conn, Routes.post_index_path(conn, :index))
 
       assert html =~ "Post updated successfully"
-      assert html =~ "some updated body_html"
+      assert html =~ "some much much much much much much longer updated body_html"
     end
 
     test "deletes post in listing", %{conn: conn, post: post} do
@@ -104,7 +114,7 @@ defmodule BlokosDevWeb.PostLiveTest do
         |> follow_redirect(conn, Routes.post_show_path(conn, :show, post))
 
       assert html =~ "Post updated successfully"
-      assert html =~ "some updated body_html"
+      assert html =~ "some much much much much much much longer updated body_html"
     end
   end
 end

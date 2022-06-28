@@ -1,8 +1,8 @@
 defmodule BlokosDevWeb.TopicLive.Index do
   use BlokosDevWeb, :live_view
-
   alias BlokosDev.Content
   alias BlokosDev.Content.Topic
+  on_mount BlokosDevWeb.UserLiveAuth
 
   @impl true
   def mount(_params, _session, socket) do

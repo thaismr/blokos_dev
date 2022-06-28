@@ -18,23 +18,27 @@ defmodule BlokosDevWeb.Router do
   end
 
   scope "/", BlokosDevWeb do
+    pipe_through [:browser, :require_authenticated_user]
+
+    live "/topics", TopicLive.Index, :index
+    live "/topics/:id", TopicLive.Show, :show
+
+    live "/posts", PostLive.Index, :index
+    live "/posts/:id", PostLive.Show, :show
+
+    live "/topics/new", TopicLive.Index, :new
+    live "/topics/:id/edit", TopicLive.Index, :edit
+    live "/topics/:id/show/edit", TopicLive.Show, :edit
+
+    live "/posts/new", PostLive.Index, :new
+    live "/posts/:id/edit", PostLive.Index, :edit
+    live "/posts/:id/show/edit", PostLive.Show, :edit
+  end
+
+  scope "/", BlokosDevWeb do
     pipe_through :browser
 
     get "/", PageController, :index
-
-    live "/topics", TopicLive.Index, :index
-    live "/topics/new", TopicLive.Index, :new
-    live "/topics/:id/edit", TopicLive.Index, :edit
-
-    live "/topics/:id", TopicLive.Show, :show
-    live "/topics/:id/show/edit", TopicLive.Show, :edit
-
-    live "/posts", PostLive.Index, :index
-    live "/posts/new", PostLive.Index, :new
-    live "/posts/:id/edit", PostLive.Index, :edit
-
-    live "/posts/:id", PostLive.Show, :show
-    live "/posts/:id/show/edit", PostLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
@@ -77,7 +81,7 @@ defmodule BlokosDevWeb.Router do
     pipe_through [:browser, :redirect_if_user_is_authenticated]
 
     get "/users/register", UserRegistrationController, :new
-    post "/users/register", UserRegistrationController, :create
+    # post "/users/register", UserRegistrationController, :create
     get "/users/log_in", UserSessionController, :new
     post "/users/log_in", UserSessionController, :create
     get "/users/reset_password", UserResetPasswordController, :new
