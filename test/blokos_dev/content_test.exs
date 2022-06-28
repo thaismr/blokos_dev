@@ -75,11 +75,16 @@ defmodule BlokosDev.ContentTest do
     end
 
     test "create_post/1 with valid data creates a post" do
-      valid_attrs = %{body_html: "some body_html", body_md: "some body_md", is_published: true, title: "some title"}
+      valid_attrs = %{
+        body_html: "some much much much much much much longer body_html",
+        body_md: "some much much much much much much much longer body_md",
+        is_published: true,
+        title: "some title"
+      }
 
       assert {:ok, %Post{} = post} = Content.create_post(valid_attrs)
-      assert post.body_html == "some body_html"
-      assert post.body_md == "some body_md"
+      assert post.body_html == "some much much much much much much longer body_html"
+      assert post.body_md == "some much much much much much much much longer body_md"
       assert post.is_published == true
       assert post.title == "some title"
     end
@@ -90,11 +95,17 @@ defmodule BlokosDev.ContentTest do
 
     test "update_post/2 with valid data updates the post" do
       post = post_fixture()
-      update_attrs = %{body_html: "some updated body_html", body_md: "some updated body_md", is_published: false, title: "some updated title"}
+
+      update_attrs = %{
+        body_html: "some much much much much much much much longer updated body_html",
+        body_md: "some much much much much much much much longer updated body_md",
+        is_published: false,
+        title: "some updated title"
+      }
 
       assert {:ok, %Post{} = post} = Content.update_post(post, update_attrs)
-      assert post.body_html == "some updated body_html"
-      assert post.body_md == "some updated body_md"
+      assert post.body_html == "some much much much much much much much longer updated body_html"
+      assert post.body_md == "some much much much much much much much longer updated body_md"
       assert post.is_published == false
       assert post.title == "some updated title"
     end

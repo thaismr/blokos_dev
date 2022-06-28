@@ -13,6 +13,7 @@ defmodule BlokosDev.Content.Topic do
     topic
     |> cast(attrs, [:name])
     |> validate_required([:name])
+    |> validate_length(:name, min: 2, max: 250)
     |> unique_constraint(:name)
   end
 end

@@ -35,8 +35,8 @@ defmodule BlokosDev.ContentFixtures do
     {:ok, post} =
       attrs
       |> Enum.into(%{
-        body_html: "some body_html",
-        body_md: "some body_md",
+        body_html: "some much much much much much much longer body_html",
+        body_md: "some much much much much much much much much longer body_md",
         is_published: true,
         title: unique_post_title()
       })

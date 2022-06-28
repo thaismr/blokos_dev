@@ -20,6 +20,8 @@ defmodule BlokosDev.Content.Post do
     post
     |> cast(attrs, [:title, :body_md, :body_html, :is_published])
     |> validate_required([:title, :body_md, :body_html, :is_published])
+    |> validate_length(:title, min: 2, max: 250)
+    |> validate_length(:body_md, min: 50)
     |> unique_constraint(:title)
   end
 end
